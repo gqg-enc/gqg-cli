@@ -182,10 +182,8 @@ fn cmd_receive(db: &Database) -> Result<()> {
                 }
             }
             let out_path = out_path.to_str().unwrap().to_string();
-            if let Ok(metadata) = std::fs::metadata(&out_path) {
-                if metadata.is_file() {
-                    return Err(anyhow!("File already exists. Aborting."));
-                }
+            if let Ok(_) = std::fs::metadata(&out_path) {
+                return Err(anyhow!("File already exists. Aborting."));
             }
             std::fs::write(&out_path, data).unwrap();
             println!("{}", out_path);
