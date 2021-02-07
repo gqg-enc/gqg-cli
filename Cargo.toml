@@ -1,0 +1,14 @@
+[package]
+name = "gqg"
+version = "1.0.0"
+authors = ["gqg Authors"]
+edition = "2018"
+
+[dependencies]
+gqg-lib = { git = "https://github.com/gqg-enc/gqg-lib" }
+#gqg-lib = { path = "../gqg-lib" }
+sodiumoxide = "0.2.6"
+anyhow = "1.0.38"
+dirs = "3.0.1"
+chrono = "0.4.19"
+ansi_term = "0.12.1"
