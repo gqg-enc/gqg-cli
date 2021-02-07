@@ -1,4 +1,5 @@
 use std::io::Read;
+use std::ops::Deref;
 use chrono::Timelike;
 use chrono::Datelike;
 use ansi_term::Color::{Red, Green};
@@ -10,6 +11,39 @@ use gqg_lib;
 extern crate anyhow;
 
 static GREY: ansi_term::Color = ansi_term::Color::Fixed(240);
+
+macro_rules! red {
+    ($a:expr) => {
+        if cfg!(target_os = "windows") {
+            $a
+        }
+        else {
+            Red.paint($a).deref().to_string()
+        }
+    }
+}
+
+macro_rules! green {
+    ($a:expr) => {
+        if cfg!(target_os = "windows") {
+            $a
+        }
+        else {
+            Green.paint($a).deref().to_string()
+        }
+    }
+}
+
+macro_rules! grey {
+    ($a:expr) => {
+        if cfg!(target_os = "windows") {
+            $a
+        }
+        else {
+            GREY.paint($a).deref().to_string()
+        }
+    }
+}
 
 fn logo() {
     eprintln!("
@@ -47,7 +81,7 @@ fn main() {
             std::process::exit(0);
         }
         Err(err) => {
-            eprintln!("{}", Red.paint(format!("Error: {}", err)));
+            eprintln!("{}", red!(format!("Error: {}", err)));
             std::process::exit(1);
         }
     }
@@ -104,12 +138,12 @@ fn cmd_list(db: &Database) -> Result<()> {
     for id in db.get_identities() {
         let name;
         if id.name == active_id.name {
-            name = Green.paint(format!("(*) {}", &id.name)).to_string()
+            name = green!(format!("(*) {}", &id.name)).to_string()
         }
         else {
             name = id.name.to_string()
         };
-        println!("    {} {}", name, GREY.paint(id.get_public_id()));
+        println!("    {} {}", name, grey!(id.get_public_id()));
     }
     println!("");
     let friends = db.get_friends();
@@ -149,10 +183,10 @@ fn cmd_receive(db: &Database) -> Result<()> {
             let mut name = "untrusted";
             match db.find_friend_by_key(&msg.sender) {
                 None => {
-                    eprintln!("{}", Red.paint("BEWARE. Unknown sender: This message is NOT sent by your friends."));
+                    eprintln!("{}", red!("BEWARE. Unknown sender: This message is NOT sent by your friends.".to_string()));
                 }
                 Some(friend) => {
-                    eprintln!("{}", Green.paint(format!("VERIFIED: {}", friend.name)));
+                    eprintln!("{}", green!(format!("VERIFIED: {}", friend.name)));
                     name = &friend.name;
                 }
             };
