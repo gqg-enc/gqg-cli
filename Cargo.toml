@@ -2,7 +2,11 @@
 name = "gqg"
 version = "1.0.0"
 authors = ["gqg Authors"]
+description = "Minimalistic file and message encryption"
 edition = "2018"
+license = "MIT OR Apache-2.0"
+homepage = "https://gqg-enc.github.io/"
+repository = "https://github.com/gqg-enc/gqg-cli"
 
 [dependencies]
 gqg-lib = { git = "https://github.com/gqg-enc/gqg-lib" }

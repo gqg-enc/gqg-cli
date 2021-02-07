@@ -1,0 +1,11 @@
+language: rust
+rust:
+  - stable
+os:
+  - linux
+  - windows
+after_success:
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo install cargo-aur; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo install cargo-deb; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo aur; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo deb; fi
