@@ -21,7 +21,6 @@ deploy:
     - "target/debian/gqg_*_amd64.deb"
     - "gqg-*-x86_64.tar.gz"
     - "target/wix/gqg-*-x86_64.msi"
-  file_glob: true
   skip_cleanup: true
   on:
     os: linux
