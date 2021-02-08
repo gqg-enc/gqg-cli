@@ -11,7 +11,7 @@ after_success:
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo deb; fi
 - if [ "$TRAVIS_OS_NAME" = "windows" ]; then powershell Install-WindowsFeature Net-Framework-Core; fi
 - if [ "$TRAVIS_OS_NAME" = "windows" ]; then choco install wixtoolset; fi
-- export PATH=$PATH:`echo /c/Program*/WiX Toolset*/bin`
+- export PATH=$PATH:`echo /c/Program*/WiX*/bin`
 - if [ "$TRAVIS_OS_NAME" = "windows" ]; then cargo install cargo-wix; fi
 - if [ "$TRAVIS_OS_NAME" = "windows" ]; then cargo wix; fi
 deploy:
