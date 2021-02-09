@@ -19,7 +19,7 @@ deploy:
   api_key:
     secure: K5NymtMCqH5kRknIwr75c0UGRdfhF/dInaYUNnFm68jLLhjGL1VErl3hmaUK/Z+YE4hgzLV4iNs/vcUg9tS+Nce85zoyc/tR55pGoREZyI39ykIUvsNs4mz22kOFETKcZ5AzPgEmUWlt1MtSbALryg5B0SfiV7d3Y8Gw+gOwgCnovL9R6OV59fJyqBNhMZSAI6ZqxD6zyAoLzYRDmlGZLFDSpwjD9tb8l3U01kgRHbXOceEXvlxUq2Ngf08C/YHEpRMunonWztnKqURqhbFO8xamcDYXKQ5DOeQJ8eFO+m7t8BrNCouypLhxFep4kIbnTx1+eUWuZVIm3rxNo5ZBFXg2zcqCMP19+yZ2Qp4aZOJs23O5PZXRvDQTXhwm8YcSanV5SdcIAhfV213emI08yFtmdn8NXlRHbjf7MRtfFSQzQmviOZ5y9ykaTEHb3vDR2eLVOiBigz6/C/Y5pqaxNvFJ4ZlH0zbiCB/fLR8L3CANT7ljJcVhNtoFPDtXIxqVbzCcerYe7gbQXBa16wRau1nAN9AkXmBmoitcZDoW7V5vQ+XuMjX2coVg9zZAn770AWEKYozAeLg1iOtUHL4asTmFwXaxn3kKYPnIi4uTnq8SLwTS4GcenDrL7HNqHHSFItAIP+T5hpGJv/BNmA9ttFaW8J5GFMeGo5tsrLBJ3TI=
   file:
+    - "target/wix/gqg-1.0.0-x86_64.msi"
     - "target/debian/gqg_1.0.0_amd64.deb"
     - "gqg-1.0.0-x86_64.tar.gz"
-    - "target/wix/gqg-1.0.0-x86_64.msi"
   skip_cleanup: true
